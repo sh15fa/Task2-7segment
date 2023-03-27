@@ -1,0 +1,101 @@
+.all{
+    
+    text-align: center;
+    margin-top:15vh ;
+    
+}
+.text{
+    width: 55vh;
+    border: black solid 0.46vh;
+    border-radius:0.7vh;
+   padding: 0.7vh;
+   font-size: 0.8rem;
+   
+
+}
+.btn{
+    padding: 1vh 2vh ;
+    font-size: 1rem;
+    background-color: white;
+    box-shadow: 0.25vw 0.25vw ;
+    border: black solid 0.1vh;
+    margin : 8vh auto 5vh auto;
+
+}
+.validate{
+    font-size: 0.9rem;
+    color: red;
+    width: 55vh;
+    margin: auto;
+    text-align: left; 
+
+}
+.seg{
+    height:45vh;
+    width: 55vh;
+    border: black solid 0.2vw ;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.segments , .segments1,.segments2{
+    height: 27.5vh;
+    padding: 0.5vw;
+    background-color: black;
+    position: relative;
+    display: none;
+    
+}
+
+.segments div,.segments1 div ,.segments2 div{
+    background-color: gray;
+    border-radius: 10vh;
+    position: absolute;
+}
+.seg1{
+
+    height: 7%;
+    width: 70%;
+   right:14.5%  ;
+   
+   
+
+}
+.seg2{
+    height:38% ;
+    width: 12%;
+    top: 9%;
+  
+}
+.seg3{
+    height: 7%;
+    width: 70%;
+   right:14.5%  ;
+   top: 46%;
+}
+.seg4{
+    height:38%;
+    width: 12%;
+    top: 51.5%;
+
+}
+.seg5{
+    height: 7%;
+    width:70%;
+   right:14.5%  ;
+   top: 88%;
+}
+.seg6{
+    height:38% ;
+    width: 12%;
+    right:6%  ;
+    top: 9%;
+}
+.seg7{
+    height:38% ;
+    width: 12%;
+    top: 51.5%;
+    right: 6%   ;
+}
