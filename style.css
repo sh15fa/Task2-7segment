@@ -41,7 +41,7 @@
    padding: 7vh;
 }
 
-.segments , .segments1,.segments2{
+.segments {
     height: 27.5vh;
     padding: 0.5vw;
     background-color: black;
@@ -51,7 +51,7 @@
     
 }
 
-.segments div,.segments1 div ,.segments2 div{
+.segments div{
     background-color: gray;
     border-radius: 10vh;
     position: absolute;

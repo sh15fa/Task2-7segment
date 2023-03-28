@@ -1,7 +1,4 @@
-let b=document.getElementById('segment');
-let b1=document.getElementById('segment1');
-let b2=document.getElementById('segment2');
-const r=[b2,b1,b];
+const d=document.querySelectorAll('.segments');
 let bb=document.getElementById('val');
 const txt=document.getElementById('txt');
 const btn=document.getElementById('button');
@@ -13,16 +10,16 @@ function segs(){
         <div class="seg${i}" id="segmen${i}"></div>
         `;
     }
-    b.innerHTML=data1;
-    b1.innerHTML=data1;
-    b2.innerHTML=data1;
+    for(let i=0;i<d.length;i++){
+        d[i].innerHTML=data1;
+    }
 }
 segs();
 //=========display every 7segments if its not a number or empty========
 function displayNoneForAllSegs(){
-    b.style.display='none';
-    b1.style.display='none';
-    b2.style.display='none'; 
+    for(let i=0;i<d.length;i++){
+        d[i].style.display='none';
+    }
 }
 //============find number digit one by one===============
 function findNumDigits(n){
@@ -39,13 +36,16 @@ function validate(n){
     bb.innerHTML=val;
     bb.style.display='block';
 }
+
+let des=((x)=>{//========to display sigments according to number of digits=======  
+    display(rem,x);
+});
 //============change value to 7segment============  
 function textNums(){
     let num=txt.value;
-    
     const isnum=(str)=>/^\d+$/.test(str);//chech if its a number or not
     if(isnum(num)){
-        
+        displayNoneForAllSegs();
        let nn=parseInt(num);
        number=nn;
       //==========if number > 3 digits=========
@@ -55,20 +55,10 @@ function textNums(){
     }
     //==========if number <= 3 digits=========
     else {
-        for(let i=1;i<= nn.toString().length;i++){
+        for(let i=0;i< nn.toString().length;i++){
         findNumDigits(number);
-            display(rem,r[i-1]);
-        if(i==1){
-            b.style.display='none';  
-           b1.style.display='none';
-            b2.style.display='inline'; 
-         }
-       else if(i==2){
-        b.style.display='none';  
-        b1.style.display='inline';
-        }else {
-            b.style.display='inline'; 
-       } 
+            des(d[nn.toString().length-1-i]);
+            d[i].style.display='inline';
     }
     }
     }
