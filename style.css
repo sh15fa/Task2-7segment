@@ -31,13 +31,14 @@
 
 }
 .seg{
-    height:45vh;
-    width: 55vh;
+    height:38vh;
+    width: 45vh;
     border: black solid 0.2vw ;
    margin: auto;
    display: flex;
    align-items: center;
    justify-content: center;
+   padding: 7vh;
 }
 
 .segments , .segments1,.segments2{
@@ -46,6 +47,7 @@
     background-color: black;
     position: relative;
     display: none;
+    width: 15vh;
     
 }
 

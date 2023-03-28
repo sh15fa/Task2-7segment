@@ -1,6 +1,7 @@
 let b=document.getElementById('segment');
 let b1=document.getElementById('segment1');
 let b2=document.getElementById('segment2');
+const r=[b2,b1,b];
 let bb=document.getElementById('val');
 const txt=document.getElementById('txt');
 const btn=document.getElementById('button');
@@ -17,30 +18,18 @@ function segs(){
     b2.innerHTML=data1;
 }
 segs();
-//=========width if the num from 1 or 2 digits===============
-function fun1(){
-    b1.style.width='15vh';
-    b2.style.width='15vh';
-    b.style.width='15vh';
-}
-//=========width if the num from 3 digits===============
-function fun2(){
-    b1.style.width='13vh';
-    b2.style.width='13vh';
-    b.style.width='13vh';
-}
 //=========display every 7segments if its not a number or empty========
-function fun3(){
+function displayNoneForAllSegs(){
     b.style.display='none';
     b1.style.display='none';
     b2.style.display='none'; 
 }
 //============find number digit one by one===============
-function res(n){
+function findNumDigits(n){
     if(n>=0){
         rem=n%10;
         n=parseInt(n/10); 
-        nn=n;
+       number=n;
     }
     return rem;
 }
@@ -53,43 +42,39 @@ function validate(n){
 //============change value to 7segment============  
 function textNums(){
     let num=txt.value;
+    
     const isnum=(str)=>/^\d+$/.test(str);//chech if its a number or not
     if(isnum(num)){
+        
+       let nn=parseInt(num);
+       number=nn;
       //==========if number > 3 digits=========
-    if(num.length>3 ){
-        fun3();
+    if(nn.toString().length>3 ){
+        displayNoneForAllSegs();
         alert("Enter numbers between 0 and 999"); 
     }
     //==========if number <= 3 digits=========
     else {
-         nn=parseInt(num);
-        for(let i=1;i<=num.length;i++){
-        res(nn);
-        console.log(rem);
+        for(let i=1;i<= nn.toString().length;i++){
+        findNumDigits(number);
+            display(rem,r[i-1]);
         if(i==1){
-            fun1();
             b.style.display='none';  
            b1.style.display='none';
             b2.style.display='inline'; 
-            display(rem,b2); 
          }
        else if(i==2){
-        fun1();
         b.style.display='none';  
         b1.style.display='inline';
-             display(rem,b1);
-        }
-        else{
-            fun2();
-            b.style.display='inline';
-             display(rem,b); 
+        }else {
+            b.style.display='inline'; 
        } 
     }
     }
     }
     //=============for non a number===============
     else{
-        fun3();
+        displayNoneForAllSegs();
         validate(num);
     }      
 }
@@ -108,6 +93,7 @@ function display(n,nums){
             }}
       }
 }
+
 //=========when press the button display a number============
 btn.addEventListener('click',()=>{
     textNums();
