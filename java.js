@@ -26,7 +26,7 @@ function findNumDigits(number){
     if(number>=0){
         rem=number%10;
         number=parseInt(number/10); 
-        numberConverted=number;
+        numberDigits=number;
     }
     return rem;
 }
@@ -46,7 +46,7 @@ function txtNumTo7Segs(){
     if(isNum(numFromUser)){
         displayNoneForAllSegs();
        let strToNum=parseInt(numFromUser);
-       numberConverted=strToNum;
+       numberDigits=strToNum;
       //==========if number > 3 digits=========
     if(strToNum.toString().length>3 ){
         displayNoneForAllSegs();
@@ -55,7 +55,7 @@ function txtNumTo7Segs(){
     //==========if number <= 3 digits=========
     else {
         for(let i=0;i< strToNum.toString().length;i++){
-        findNumDigits(numberConverted);
+        findNumDigits(numberDigits);
             display(segments[strToNum.toString().length-1-i]);
             segments[i].style.display='inline';
     }
